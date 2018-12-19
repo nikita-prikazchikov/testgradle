@@ -7,6 +7,7 @@ import com.gd.steps.Steps;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 public class LoginTest {
@@ -25,9 +26,18 @@ public class LoginTest {
     }
 
     @Test
-    void loginTest() {
+    @Ignore
+    private void loginTest() {
         steps.homePage.openHomePage();
         steps.homePage.openLoginForm();
         steps.loginPage.login(testData.getUser());
+    }
+
+    @Test
+    void addShippingAddress(){
+        loginTest();
+        steps.homePage.openMyAccount();
+        steps.accountPageSteps.openAddressBook();
+        steps.accountPageSteps.addNewAddress(testData.getAddress());
     }
 }
