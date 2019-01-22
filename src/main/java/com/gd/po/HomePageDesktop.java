@@ -1,4 +1,4 @@
-package com.gd.po.desktop;
+package com.gd.po;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;

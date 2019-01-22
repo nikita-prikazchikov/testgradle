@@ -1,12 +1,14 @@
-package com.gd.po.desktop;
+package com.gd.po;
 
 import com.codeborne.selenide.SelenideElement;
 import com.gd.objects.User;
 
+import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
-public class LoginPage {
+public class LoginPageDesktop {
 
     private SelenideElement email        = $("#login_email");
     private SelenideElement pasword      = $("#login_password");

@@ -1,43 +1,27 @@
 package com.gd;
 
-import com.gd.config.DesktopInjector;
-import com.gd.config.LocalTestDataInjector;
-import com.gd.data.TestData;
-import com.gd.steps.Steps;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Ignore;
+import io.qameta.allure.Description;
+import io.qameta.allure.TmsLink;
 import org.testng.annotations.Test;
 
-public class LoginTest {
-    private Steps    steps;
-    private TestData testData;
-
-    @BeforeSuite
-    public void init(){
-        Injector injector = Guice.createInjector(new DesktopInjector());
-        steps = injector.getInstance(Steps.class);
-
-        Injector testDataInjector = Guice.createInjector(new LocalTestDataInjector());
-        testData = testDataInjector.getInstance(TestData.class);
-
-        testData.initTestData();
-    }
+public class LoginTest extends AbstractTest {
 
     @Test
-    @Ignore
+    @TmsLink("PRD_TC_023_Account_Sign In")
+    @Description("Verify that user is able to sign in to his user account with  valid user credentials")
     private void loginTest() {
-        steps.homePage.openHomePage();
-        steps.homePage.openLoginForm();
-        steps.loginPage.login(testData.getUser());
+        st.home.openHomePage();
+        st.home.openLoginForm();
+        st.login.login(td.getUser());
     }
 
     @Test
     void addShippingAddress(){
-        loginTest();
-        steps.homePage.openMyAccount();
-        steps.accountPageSteps.openAddressBook();
-        steps.accountPageSteps.addNewAddress(testData.getAddress());
+        st.generic.openAndLogin(td.getUser());
+
+        st.home.openMyAccount();
+        st.account.openAddressBook();
+        st.account.addNewAddress(td.getAddress());
+        st.account.verifyAddedAddress(td.getAddress());
     }
 }

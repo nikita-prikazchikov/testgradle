@@ -1,10 +1,10 @@
-package com.gd.po.desktop.account;
+package com.gd.po.account;
 
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class AccountOverviewForm {
+public class AccountOverviewFormDesktop {
 
     public SelenideElement fake = $(".fake");
 }

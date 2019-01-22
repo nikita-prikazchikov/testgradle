@@ -1,11 +1,11 @@
-package com.gd.po.desktop.account;
+package com.gd.po.account;
 
 import com.codeborne.selenide.SelenideElement;
 import com.gd.objects.Address;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class AddAddressForm {
+public class AddAddressFormDesktop {
 
     public SelenideElement firstName = $("#first-name");
     public SelenideElement lastName = $("#last-name");

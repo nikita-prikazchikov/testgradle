@@ -1,14 +1,14 @@
 package com.gd.steps.desktop;
 
-import com.gd.po.desktop.HomePageDesktop;
-import com.gd.po.desktop.ShippingPromotionWindow;
+import com.gd.po.HomePageDesktop;
+import com.gd.po.ShippingPromotionWindowDesktop;
 import com.gd.steps.generic.HomePageSteps;
 import io.qameta.allure.Step;
 
 public class HomePageStepsDesktop implements HomePageSteps {
 
-    private HomePageDesktop         homePage = new HomePageDesktop();
-    private ShippingPromotionWindow window   = new ShippingPromotionWindow();
+    private HomePageDesktop                homePage = new HomePageDesktop();
+    private ShippingPromotionWindowDesktop window   = new ShippingPromotionWindowDesktop();
 
     @Override
     @Step("Open Home page")
